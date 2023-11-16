@@ -1,12 +1,12 @@
-import { BACKEND_URL } from '$env/static/private'
+import { PUBLIC_BACKEND_URL } from '$env/static/public'
 
 async function get(route: string): Promise<Record<string, unknown>> {
-  return fetch(BACKEND_URL + route)
+  return fetch(PUBLIC_BACKEND_URL + route)
     .then(res => res.json())
 }
 
 async function post(route: string, body?: Record<string, unknown>): Promise<Record<string, unknown>> {
-  return await fetch(BACKEND_URL + route, {
+  return await fetch(PUBLIC_BACKEND_URL + route, {
     method: "POST",
     body: JSON.stringify(body)
   }).then(res => res.json())

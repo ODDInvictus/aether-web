@@ -1,26 +1,33 @@
-<script lang="ts">
-  import type { PageData } from './$types';
-    
-  export let data: PageData;
-  
-  const lf = new Intl.ListFormat('nl')
-
-  $: state = data.currentlyPlaying
-  $: artists = state.current ? lf.format(state.track.artist.map(a => a.name)) : ''
-
-  function play() {
-    fetch('', {
-      method: 'POST'
-    })
-  }
-</script>
-
-<main>
+<div class="root">
   <h1>Aether</h1>
-  {#if state.current}
-    <h2>{state.track.name}</h2>
-    <h3>{artists}</h3>
-  {/if}
 
-  <button on:click={play}>Speel</button>
-</main>
+  <nav>
+    <a href="/playlists">
+      Afspeellijsten
+    </a>
+
+    <span>•</span>
+
+    <a href="/settings">
+      Instellingen
+    </a>
+  </nav>
+</div>
+
+<style lang="sass">
+  .root
+    height: 100%
+
+    margin-left: 0.5rem
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: flex-start
+
+  nav
+    font-size: 1.5rem
+
+    span
+      font-size: 1rem
+
+</style>

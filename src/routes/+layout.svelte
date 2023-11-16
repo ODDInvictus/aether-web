@@ -1,5 +1,7 @@
 <script lang="ts">
-  import '../styles/style.sass' 
+  import "../styles/style.sass"
 </script>
 
-<slot />
+<main>
+  <slot />
+</main>
